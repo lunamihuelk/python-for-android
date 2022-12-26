@@ -25,7 +25,10 @@ class NumpyRecipe(CompiledComponentsPythonRecipe):
 
     def get_recipe_env(self, arch=None, with_flags_in_cc=True):
         env = super().get_recipe_env(arch, with_flags_in_cc)
-
+        
+        #customs
+        env['LIBS'] = ' -lpng -lfreetype -lharfbuzz -ljpeg -lturbojpeg -lm'
+        env['LDFLAGS'] += ' -lm'
         # _PYTHON_HOST_PLATFORM declares that we're cross-compiling
         # and avoids issues when building on macOS for Android targets.
         env["_PYTHON_HOST_PLATFORM"] = arch.command_prefix
