@@ -14,7 +14,7 @@ index 66c07c9..d34bd93 100644
          sources=['umath_linalg.c.src', get_lapack_lite_sources],
          depends=['lapack_lite/f2c.h'],
          extra_info=lapack_info,
--        libraries=['npymath'],
+-        libraries=[ ],
 +        libraries=['npymath', 'm'],
      )
      return config
